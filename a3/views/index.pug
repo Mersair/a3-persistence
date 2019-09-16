@@ -2,42 +2,46 @@ extends layout
 
 
 block content
+  script(src="javascripts/browserIndex.js")
+  link(rel='stylesheet', href='stylesheets/style.css')
+  div#dimmer
+    p Saved!
   for val in results
     form.form-horizontal(method='POST' action='/api/booking/update')
       div.form-group
-        label(for='seat') Seat:
-        input#seat.form-control(type='text', placeholder='A1' name='seat' value=val.seat)
+        label.form-label(for='seat') Seat:
+        input#seat.form-input(type='text', placeholder='A1' name='seat' value=val.seat)
       div.form-group
-        label(for='username') Username:
-        input#username.form-control(type='text', placeholder='gompei' name='username' value=val.username)
+        label.form-label(for='username') Username:
+        input#username.form-input(type='text', placeholder='gompei' name='username' value=val.username)
       div.form-group
-        label(for='date') Date:
-        input#date.form-control(type='date', name='date' value=val.date)
+        label.form-label(for='date') Date:
+        input#date.form-input(type='date', name='date' value=val.date)
       div.form-group
-        label(for='time') Time:
-        input#time.form-control(type='number' name='time' value=val.time)
+        label.form-label(for='time') Time:
+        input#time.form-input(type='number' name='time' value=val.time)
       div.form-group
-        input.form-control(type='hidden' name='id' value=val.id)
-      button.btn.btn-primary(type='submit') Revise Booking
+        input.form-label(type='hidden' name='id' value=val.id)
+      button.btn.btn-primary(type='submit' onclick="saveDialog()") Revise Booking
     form(method='POST' action='/api/booking/delete')
       div.form-group
-        input.form-control(type='hidden' name='id' value=val.id)
-      button.btn.btn-primary(type='submit') Delete Booking
+        input(type='hidden' name='id' value=val.id)
+      button.btn.btn-primary(type='submit' onclick="saveDialog()") Delete Booking
     small= val.username + " | " + val.seat + " | " + val.time + " | " + val.email
     hr
   form.form-horizontal(method='POST' action='/api/booking/create')
     div.form-group
-      label(for='seat') Seat:
-      input#seat.form-control(type='text', placeholder='A1' name='seat')
+      label.form-label(for='seat') Seat:
+      input#seat.form-input(type='text', placeholder='A1' name='seat')
     div.form-group
-      label(for='username') Username:
-      input#username.form-control(type='text', placeholder='gompei' name='username')
+      label.form-label(for='username') Username:
+      input#username.form-input(type='text', placeholder='gompei' name='username')
     div.form-group
-      label(for='date') Date:
-      input#date.form-control(type='date', name='date' value=currentDate)
+      label.form-label(for='date') Date:
+      input#date.form-input(type='date', name='date' value=currentDate)
     div.form-group
-      label(for='time') Time:
-      input#time.form-control(type='number' name='time')
+      label.form-label(for='time') Time:
+      input#time.form-input(type='number' name='time')
     div.form-group
-      input.form-control(type='hidden' name='userid' value=userID)
-    button.btn.btn-primary(type='submit') Add Booking
+      input(type='hidden' name='userid' value=userID)
+    button.btn.btn-primary(type='submit' onclick="saveDialog()") Add Booking
