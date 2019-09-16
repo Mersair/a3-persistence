@@ -1,0 +1,43 @@
+extends layout
+
+
+block content
+  for val in results
+    form.form-horizontal(method='POST' action='/api/booking/update')
+      div.form-group
+        label(for='seat') Seat:
+        input#seat.form-control(type='text', placeholder='A1' name='seat' value=val.seat)
+      div.form-group
+        label(for='username') Username:
+        input#username.form-control(type='text', placeholder='gompei' name='username' value=val.username)
+      div.form-group
+        label(for='date') Date:
+        input#date.form-control(type='date', name='date' value=val.date)
+      div.form-group
+        label(for='time') Time:
+        input#time.form-control(type='number' name='time' value=val.time)
+      div.form-group
+        input.form-control(type='hidden' name='id' value=val.id)
+      button.btn.btn-primary(type='submit') Revise Booking
+    form(method='POST' action='/api/booking/delete')
+      div.form-group
+        input.form-control(type='hidden' name='id' value=val.id)
+      button.btn.btn-primary(type='submit') Delete Booking
+    small= val.username + " | " + val.seat + " | " + val.time + " | " + val.email
+    hr
+  form.form-horizontal(method='POST' action='/api/booking/create')
+    div.form-group
+      label(for='seat') Seat:
+      input#seat.form-control(type='text', placeholder='A1' name='seat')
+    div.form-group
+      label(for='username') Username:
+      input#username.form-control(type='text', placeholder='gompei' name='username')
+    div.form-group
+      label(for='date') Date:
+      input#date.form-control(type='date', name='date' value=currentDate)
+    div.form-group
+      label(for='time') Time:
+      input#time.form-control(type='number' name='time')
+    div.form-group
+      input.form-control(type='hidden' name='userid' value=userID)
+    button.btn.btn-primary(type='submit') Add Booking
