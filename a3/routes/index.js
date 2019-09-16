@@ -1,10 +1,12 @@
 var express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 var router = express.Router();
 
 // BEGIN AUTHENTICATION
 var Auth0Strategy = require('passport-auth0');
 var passport = require('passport');
-var session = require('express-session')
+var session = require('express-session');
 
 router.use(session({ secret: "secret", cookie: { maxAge: 3600000 } }));
 
@@ -18,8 +20,8 @@ passport.deserializeUser(function(user, done) {
 
 var strategy = new Auth0Strategy({
    domain:       'maccabi-trade.auth0.com',
-   clientID:     '2GfOjWUzQLbvLRiSLovfWTjZW7x09tIc',
-   clientSecret: 'vMrhjxiOacKeyDD3FedwOmDcDuKWpYy2qeXKS5BxIzxeGDvvjOy2jmFLe3gmuSre',
+   clientID:     process.env.AUTH0_CLIENT_ID,
+   clientSecret: process.env.AUTH0_CLIENT_SECRET,
    callbackURL:  '/callback'
   },
   function(accessToken, refreshToken, extraParams, profile, done) {
