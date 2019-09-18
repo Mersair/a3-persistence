@@ -57,7 +57,7 @@ router.get('/callback',
 
 router.get('/login',
   passport.authenticate('auth0', {}), function (req, res) {
-  res.redirect("/");
+  res.redirect("/?alert=Welcome+back");
 });
 
 router.get('/logout',
@@ -68,13 +68,16 @@ router.get('/logout',
 /* GET home page. */
 router.get('/', function(req, res) {
   let userID = 0;
-  if (req.user) { userID = req.user.id; }
+  if (req.user) {
+    userID = req.user.id;
+    username = req.user.nickname;
+  }
   else {
     res.redirect('/login')
   }
   let currentDate = new Date();
   currentDate = currentDate.toISOString().split('T')[0]
-  res.render('index', { title: 'Booker', results: dbGet(userID), currentDate: currentDate, userID: userID });
+  res.render('index', { title: 'Booker', results: dbGet(userID), currentDate: currentDate, userID: userID, username: username });
 });
 
 module.exports = router;

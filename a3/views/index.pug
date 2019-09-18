@@ -13,7 +13,7 @@ block content
         input#seat.form-input(type='text', placeholder='A1' name='seat' value=val.seat)
       div.form-group
         label.form-label(for='username') Username:
-        input#username.form-input(type='text', placeholder='gompei' name='username' value=val.username)
+        input#username.form-input(type='text' name='username' readonly value=val.username)
       div.form-group
         label.form-label(for='date') Date:
         input#date.form-input(type='date', name='date' value=val.date)
@@ -32,13 +32,13 @@ block content
   form.form-horizontal(method='POST' action='/api/booking/create')
     div.form-group
       label.form-label(for='seat') Seat:
-      input#seat.form-input(type='text', placeholder='A1' name='seat')
+      input#seat.form-input(type='text' placeholder='A1' name='seat')
     div.form-group
       label.form-label(for='username') Username:
-      input#username.form-input(type='text', placeholder='gompei' name='username')
+      input#username.form-input(type='text' name='username' readonly value=username)
     div.form-group
       label.form-label(for='date') Date:
-      input#date.form-input(type='date', name='date' value=currentDate)
+      input#date.form-input(type='date' name='date' value=currentDate)
     div.form-group
       label.form-label(for='time') Time:
       input#time.form-input(type='number' name='time')
