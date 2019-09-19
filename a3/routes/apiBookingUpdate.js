@@ -17,7 +17,7 @@ router.post('/', function (req, res) {
     const id = req.body.id;
 
     dbUpdate(username, seat, date, time, id);
-    res.redirect("/");
+    res.redirect("/?alert=Booking+updated");
   })
   
 module.exports = router;

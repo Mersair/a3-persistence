@@ -18,3 +18,7 @@
   font-size: 500%;
   color: rgb(48, 48, 48);
 }
+
+#alert p {
+  text-align: center;
+}

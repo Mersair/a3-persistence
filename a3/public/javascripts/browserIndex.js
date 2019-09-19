@@ -11,3 +11,5 @@ function saveDialog() {
     showSaveDialog(dimmer);
     setTimeout(function() { hideSaveDialog(dimmer); }, 3000);
 }
+
+window.onload = setTimeout(function() { document.getElementById('alert').style.display = 'none'; }, 3000);

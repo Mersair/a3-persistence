@@ -51,7 +51,7 @@ router.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    res.redirect("/");
+    res.redirect("/?alert=Logged+in");
   }
 );
 
@@ -75,9 +75,13 @@ router.get('/', function(req, res) {
   else {
     res.redirect('/login')
   }
+  let alert = "null"
+  if (req.query.alert) {
+    alert = req.query.alert;
+  }
   let currentDate = new Date();
   currentDate = currentDate.toISOString().split('T')[0]
-  res.render('index', { title: 'Booker', results: dbGet(userID), currentDate: currentDate, userID: userID, username: username });
+  res.render('index', { title: 'Booker', results: dbGet(userID), currentDate: currentDate, userID: userID, username: username, alert: alert });
 });
 
 module.exports = router;

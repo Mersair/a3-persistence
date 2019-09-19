@@ -13,7 +13,7 @@ router.post('/', function (req, res) {
     const id = req.body.id;
 
     dbDelete(id);
-    res.redirect("/");
+    res.redirect("/?alert=Booking+deleted");
   })
   
 module.exports = router;
