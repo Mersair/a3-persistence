@@ -1,4 +1,8 @@
+*Note to graders: This file was submitted on time - However, I've updated this file for formatting cleanup and added links for ease of access. You can explore what this file looked like at submission time [here](https://github.com/Mersair/a3-persistence/commit/d4ff9346a2fbdb7777df0269147cc462459db7c3)*
+
 ## Booker
+
+[View on Glitch](https://a3-christopher-mercer.glitch.me)
 
 Booker is a tool to be used for reserving seats in Fuller Lower. Users can select a time slot and date to book.
 
@@ -17,19 +21,9 @@ Middleware used:
  - better-sqlite3: Read/write a SQLite .db file.
  - dotenv: Read from a .env file, used for storing credentials without hardcoding.
 
-View in Glitch: http://a3-christopher-mercer.glitch.me
-
 Login credentials (Google account):
- - user: cs4241a19@gmail.com
- - pass: Gompei12X3 (To avoid account scrapers, remove the X when entering the password)
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy / database you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why.
-  - include any modifications to the CSS framework you made via custom CSS you authored.
-- the five Express middleware packages you used and a short (one sentence) summary of what each one does.
-
+ - user: `cs4241a19@gmail.com`
+ - pass: `Gompei12X3` *To avoid account scrapers, remove the X when entering the password*
 
 
 ## Technical Achievements
@@ -48,4 +42,8 @@ Login credentials (Google account):
 - **Accessability**: Running Chrome's Lighthouse tool, ensured full score was reached and page was accessable.
 - **Quick login**: Since the user has to be logged in, role is checked immedietly to give quick access.
 
-Note that for grading, if all results need to be seen the /dump URL is exposed.
+### Grading Notes
+ - If all database records need to be seen the /dump URL is exposed ([Explore user data on Glitch](https://a3-christopher-mercer.glitch.me/dump))
+ - Although the concept for the booking system was the same, this version was a complete re-write. No code was re-used.
+ - In addition to the date selector, I'm meeting the 'alternate input formats' requirement here as a `contenteditable` field, which is not a form element by default.
+ 
